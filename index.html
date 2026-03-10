@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Canvas - Discover Recipes</title>
+    <meta name="description" content="Enter your ingredients and discover amazing recipes tailored just for you.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-background"></div>
+    <div class="overlay"></div>
+
+    <header class="glass-header">
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Culinary Canvas</span>
+        </div>
+        
+        <div class="header-controls">
+            <div class="language-selector">
+                <i class="fa-solid fa-globe"></i>
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                    <option value="hi">हिंदी (Hindi)</option>
+                    <option value="te">తెలుగు (Telugu)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1 class="hero-title" id="t-hero-title">What's in your fridge?</h1>
+            <p class="hero-subtitle" id="t-hero-subtitle">Enter your ingredients and let us create magic.</p>
+            
+            <div class="search-container">
+                <div class="input-group">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="ingredientInput" placeholder="e.g., Tomato, Chicken, Garlic..." autocomplete="off">
+                    <button id="addIngredientBtn" class="primary-btn"><i class="fa-solid fa-plus"></i> Add</button>
+                </div>
+                <div id="autocompleteList" class="autocomplete-items"></div>
+            </div>
+
+            <div class="selected-ingredients-wrapper">
+                <h3 id="t-selected-ingredients">Your Ingredients:</h3>
+                <div id="selectedIngredients" class="chips-container">
+                    <!-- Dynamic chips will appear here -->
+                    <p class="empty-state-text" id="t-no-ingredients">No ingredients added yet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <h2 id="t-categories">Categories</h2>
+            <div class="category-filters" id="categoryFilters" style="margin-bottom: 1rem;">
+                <button class="category-btn active" data-category="All">All</button>
+                <button class="category-btn" data-category="Breakfast">Breakfast</button>
+                <button class="category-btn" data-category="Lunch">Lunch</button>
+                <button class="category-btn" data-category="Dinner">Dinner</button>
+                <button class="category-btn" data-category="Snacks">Snacks</button>
+                <button class="category-btn" data-category="Desserts">Desserts</button>
+                <button class="category-btn" data-category="Healthy">Healthy</button>
+                <button class="category-btn" data-category="Quick & Easy">Quick & Easy</button>
+                <button class="category-btn" data-category="Veg">Veg</button>
+                <button class="category-btn" data-category="Non-Veg">Non-Veg</button>
+            </div>
+            
+            <h2 id="t-cuisines" style="margin-top: 2rem; font-size: 1.5rem;">Cuisines</h2>
+            <div class="category-filters" id="cuisineFilters">
+                <button class="category-btn" data-category="Indian Style">Indian Style</button>
+                <button class="category-btn" data-category="North Indian">North Indian</button>
+                <button class="category-btn" data-category="South Indian">South Indian</button>
+                <button class="category-btn" data-category="Chinese">Chinese</button>
+                <button class="category-btn" data-category="Japanese">Japanese</button>
+            </div>
+        </section>
+
+        <section class="recipes-section">
+            <div class="section-header">
+                <h2 id="t-suggested-recipes">Suggested Recipes</h2>
+                <div class="match-info">
+                    <span id="recipeCount">0</span> <span id="t-recipes-found">recipes found</span>
+                </div>
+            </div>
+            
+            <div id="recipesGrid" class="recipes-grid">
+                <!-- Recipes will dynamically populate here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-btn">&times;</span>
+            <div id="modalBody" class="modal-body">
+                <!-- Dynamic recipe details -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
